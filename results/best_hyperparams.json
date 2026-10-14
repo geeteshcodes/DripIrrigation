@@ -41,53 +41,15 @@
     "min_samples_split": 5,
     "max_depth": 10
   },
-  "LogisticRegression__baseline4": {
-    "C": 10.0,
-    "solver": "lbfgs"
-  },
-  "DecisionTreeClf__baseline4": {
-    "min_samples_split": 2,
-    "max_depth": 5
-  },
-  "RandomForestClf__baseline4": {
-    "n_estimators": 100,
-    "min_samples_split": 5,
-    "max_depth": 10
-  },
-  "HistGradientBoostingClf__baseline4": {
-    "max_iter": 200,
-    "max_depth": 3,
-    "learning_rate": 0.01
-  },
-  "AdaBoostClf__baseline4": {
-    "learning_rate": 1.0,
-    "n_estimators": 200
-  },
-  "LinearSVC__baseline4": {
-    "C": 0.01
-  },
-  "KNNClf__baseline4": {
-    "n_neighbors": 5,
-    "weights": "distance"
-  },
-  "ExtraTreesClf__baseline4": {
-    "max_depth": null,
-    "n_estimators": 200
-  },
   "DNN_Regressor__baseline4": {
     "learning_rate": "0.0005",
     "batch_size": "256",
-    "epochs_run": "20"
-  },
-  "DNN_Classifier__baseline4": {
-    "learning_rate": "0.001",
-    "batch_size": "128",
-    "epochs_run": "33"
+    "epochs_run": "21"
   },
   "WideDeep_Regressor__baseline4": {
     "learning_rate": "0.0005",
-    "batch_size": "128",
-    "epochs_run": "16"
+    "batch_size": "256",
+    "epochs_run": "23"
   },
   "LinearRegression__proposed7": {},
   "Ridge__proposed7": {
@@ -131,53 +93,15 @@
     "min_samples_split": 2,
     "max_depth": 20
   },
-  "LogisticRegression__proposed7": {
-    "C": 10.0,
-    "solver": "saga"
-  },
-  "DecisionTreeClf__proposed7": {
-    "min_samples_split": 2,
-    "max_depth": 5
-  },
-  "RandomForestClf__proposed7": {
-    "n_estimators": 200,
-    "min_samples_split": 2,
-    "max_depth": null
-  },
-  "HistGradientBoostingClf__proposed7": {
-    "max_iter": 200,
-    "max_depth": 7,
-    "learning_rate": 0.01
-  },
-  "AdaBoostClf__proposed7": {
-    "learning_rate": 1.0,
-    "n_estimators": 200
-  },
-  "LinearSVC__proposed7": {
-    "C": 0.01
-  },
-  "KNNClf__proposed7": {
-    "n_neighbors": 3,
-    "weights": "distance"
-  },
-  "ExtraTreesClf__proposed7": {
-    "max_depth": null,
-    "n_estimators": 100
-  },
   "DNN_Regressor__proposed7": {
-    "learning_rate": "0.001",
-    "batch_size": "256",
-    "epochs_run": "80"
-  },
-  "DNN_Classifier__proposed7": {
-    "learning_rate": "0.001",
+    "learning_rate": "0.0005",
     "batch_size": "128",
-    "epochs_run": "48"
+    "epochs_run": "87"
   },
   "WideDeep_Regressor__proposed7": {
-    "learning_rate": "0.0005",
-    "batch_size": "256",
-    "epochs_run": "119"
+    "learning_rate": "0.001",
+    "batch_size": "128",
+    "epochs_run": "77"
   },
   "LinearRegression__extended_raw": {},
   "Ridge__extended_raw": {
@@ -221,53 +145,15 @@
     "min_samples_split": 2,
     "max_depth": 20
   },
-  "LogisticRegression__extended_raw": {
-    "C": 10.0,
-    "solver": "saga"
-  },
-  "DecisionTreeClf__extended_raw": {
-    "min_samples_split": 5,
-    "max_depth": null
-  },
-  "RandomForestClf__extended_raw": {
-    "n_estimators": 300,
-    "min_samples_split": 2,
-    "max_depth": 20
-  },
-  "HistGradientBoostingClf__extended_raw": {
-    "max_iter": 200,
-    "max_depth": 5,
-    "learning_rate": 0.1
-  },
-  "AdaBoostClf__extended_raw": {
-    "learning_rate": 1.0,
-    "n_estimators": 200
-  },
-  "LinearSVC__extended_raw": {
-    "C": 1.0
-  },
-  "KNNClf__extended_raw": {
-    "n_neighbors": 3,
-    "weights": "distance"
-  },
-  "ExtraTreesClf__extended_raw": {
-    "max_depth": 20,
-    "n_estimators": 300
-  },
   "DNN_Regressor__extended_raw": {
     "learning_rate": "0.001",
     "batch_size": "256",
-    "epochs_run": "127"
-  },
-  "DNN_Classifier__extended_raw": {
-    "learning_rate": "0.001",
-    "batch_size": "256",
-    "epochs_run": "99"
+    "epochs_run": "86"
   },
   "WideDeep_Regressor__extended_raw": {
     "learning_rate": "0.001",
     "batch_size": "128",
-    "epochs_run": "85"
+    "epochs_run": "95"
   },
   "LinearRegression__proposed7_plus_physics": {},
   "Ridge__proposed7_plus_physics": {
@@ -311,52 +197,14 @@
     "min_samples_split": 2,
     "max_depth": 20
   },
-  "LogisticRegression__proposed7_plus_physics": {
-    "C": 10.0,
-    "solver": "lbfgs"
-  },
-  "DecisionTreeClf__proposed7_plus_physics": {
-    "min_samples_split": 2,
-    "max_depth": 5
-  },
-  "RandomForestClf__proposed7_plus_physics": {
-    "n_estimators": 100,
-    "min_samples_split": 5,
-    "max_depth": null
-  },
-  "HistGradientBoostingClf__proposed7_plus_physics": {
-    "max_iter": 100,
-    "max_depth": 5,
-    "learning_rate": 0.05
-  },
-  "AdaBoostClf__proposed7_plus_physics": {
-    "learning_rate": 1.0,
-    "n_estimators": 100
-  },
-  "LinearSVC__proposed7_plus_physics": {
-    "C": 0.01
-  },
-  "KNNClf__proposed7_plus_physics": {
-    "n_neighbors": 3,
-    "weights": "distance"
-  },
-  "ExtraTreesClf__proposed7_plus_physics": {
-    "max_depth": null,
-    "n_estimators": 300
-  },
   "DNN_Regressor__proposed7_plus_physics": {
-    "learning_rate": "0.001",
-    "batch_size": "128",
-    "epochs_run": "85"
-  },
-  "DNN_Classifier__proposed7_plus_physics": {
-    "learning_rate": "0.001",
-    "batch_size": "128",
-    "epochs_run": "42"
-  },
-  "WideDeep_Regressor__proposed7_plus_physics": {
     "learning_rate": "0.0005",
     "batch_size": "128",
-    "epochs_run": "118"
+    "epochs_run": "136"
+  },
+  "WideDeep_Regressor__proposed7_plus_physics": {
+    "learning_rate": "0.001",
+    "batch_size": "128",
+    "epochs_run": "71"
   }
 }
