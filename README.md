@@ -248,3 +248,33 @@ The tuned model was compared against the original ExtraTreesReg configuration (`
 | Tuned, non-edge cases | 0.8291 | 2.1364 | 0.9929 | 0.9404 | 0.8506 | 1.0000 | 0.9193 |
 
 The tuned configuration did not outperform the original configuration on the reported full-test or edge-case metrics. **Retain the original configuration as the current `proposed7` choice.** The test set has now been used for this comparison; use new independent data for a future final performance estimate.
+
+Best CV MAE: 1.0232
+Best parameters: {'n_estimators': 800, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 0.8, 'max_depth': 30}
+
+Full test set (n=2000)
+MAE: 0.8463
+RMSE: 2.0716
+R²: 0.9940
+Irrigation accuracy: 0.9645
+Irrigation precision: 0.9313
+Irrigation recall: 0.9979
+Irrigation F1: 0.9635
+
+Edge-case test rows (n=1127)
+MAE: 0.8596
+RMSE: 2.0200
+R²: 0.9946
+Irrigation accuracy: 0.9831
+Irrigation precision: 0.9741
+Irrigation recall: 0.9969
+Irrigation F1: 0.9854
+
+Non-edge-case test rows (n=873)
+MAE: 0.8291
+RMSE: 2.1364
+R²: 0.9929
+Irrigation accuracy: 0.9404
+Irrigation precision: 0.8506
+Irrigation recall: 1.0000
+Irrigation F1: 0.9193
