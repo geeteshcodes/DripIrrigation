@@ -220,3 +220,31 @@ irrigate  = water_mm >= 2.0
 - FAO-56: Allen et al. (1998), *Crop Evapotranspiration — Guidelines for Computing Crop Water Requirements*.
 - Data dictionary: [`data_dictionary.md`](data_dictionary.md)
 - Full training report: [`results/training_report.md`](results/training_report.md)
+
+---
+
+## ExtraTreesReg Fine-Tuning Experiment (`proposed7`)
+
+A follow-up randomized search tuned ExtraTreesReg using the predefined training split, five-fold cross-validation, and MAE as the selection metric. The search evaluated 60 parameter combinations. Its best cross-validation MAE was **1.0232**.
+
+| Parameter | Selected value |
+|---|---:|
+| `n_estimators` | 800 |
+| `max_depth` | 30 |
+| `min_samples_split` | 2 |
+| `min_samples_leaf` | 1 |
+| `max_features` | 0.8 |
+
+### Held-Out Test Results
+
+The tuned model was compared against the original ExtraTreesReg configuration (`n_estimators=300`, `max_depth=20`, `min_samples_split=2`). Irrigation decisions use the existing 2 mm threshold.
+
+| Model / subset | MAE | RMSE | R² | Irrigation accuracy | Precision | Recall | F1 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Original, full test | 0.7456 | 1.8334 | 0.9953 | 0.9710 | 0.9435 | 0.9979 | 0.9699 |
+| Tuned, full test | 0.8463 | 2.0716 | 0.9940 | 0.9645 | 0.9313 | 0.9979 | 0.9635 |
+| Original, edge cases | 0.7741 | 1.8440 | 0.9955 | 0.9867 | 0.9801 | 0.9969 | 0.9884 |
+| Tuned, edge cases | 0.8596 | 2.0200 | 0.9946 | 0.9831 | 0.9741 | 0.9969 | 0.9854 |
+| Tuned, non-edge cases | 0.8291 | 2.1364 | 0.9929 | 0.9404 | 0.8506 | 1.0000 | 0.9193 |
+
+The tuned configuration did not outperform the original configuration on the reported full-test or edge-case metrics. **Retain the original configuration as the current `proposed7` choice.** The test set has now been used for this comparison; use new independent data for a future final performance estimate.
