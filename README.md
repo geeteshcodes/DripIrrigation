@@ -249,6 +249,50 @@ The tuned model was compared against the original ExtraTreesReg configuration (`
 
 The tuned configuration did not outperform the original configuration on the reported full-test or edge-case metrics. **Retain the original configuration as the current `proposed7` choice.** The test set has now been used for this comparison; use new independent data for a future final performance estimate.
 
+## Row-by-Row Model Testing
+
+Run the selected original ExtraTreesReg model over every row in the predefined test split:
+
+```powershell
+python .\test_model.py
+```
+
+The script fits on training rows only, predicts the held-out test rows, then loops through each row to record its inputs and outcome. It flags a bad case when the irrigation decision differs from the actual label at the 2 mm prediction threshold, or when the absolute water-amount error exceeds 2 mm.
+
+| Test output | Result |
+|---|---:|
+| Test rows processed | 2,000 |
+| MAE | 0.7456 mm |
+| RMSE | 1.8334 mm |
+| R² | 0.9953 |
+| Bad cases (either rule) | 200 |
+| Irrigation decision errors | 58 |
+| Amount errors over 2 mm | 198 |
+
+- Every row and prediction: [`results/model_test_predictions.csv`](results/model_test_predictions.csv)
+- Bad-case log, sorted with decision errors first and then by amount error: [`results/model_test_bad_cases.csv`](results/model_test_bad_cases.csv)
+
+These are results from the existing held-out split, which has already been used for model comparisons. Treat them as error analysis; use new independent field data for a future independent performance estimate.
+
+### False-Alarm Review and Threshold Validation
+
+The 58 irrigation decision errors included **56 false alarms** (predicted irrigation when the target label is no irrigation) and 2 missed irrigation cases. Of the 56 false alarms, 43 had no edge-case flag; the native need class was Low for 38 and Medium for 18. This indicates that the false alarms are not limited to flagged edge conditions and should be checked against the target-generation assumptions.
+
+`analyze_model_testing.py` writes the detailed false-alarm review and compares decision thresholds using five-fold out-of-fold predictions from training rows only. The test set is not used to select a threshold.
+
+| Prediction threshold | CV accuracy | CV precision | CV recall | CV F1 | False alarms | Missed irrigation |
+|---:|---:|---:|---:|---:|---:|---:|
+| 2.0 mm (current) | 0.9669 | 0.9376 | 0.9952 | 0.9656 | 247 | 18 |
+| 2.7 mm (highest CV F1 on 0.1 mm grid) | 0.9729 | 0.9583 | 0.9847 | 0.9713 | 160 | 57 |
+| 3.5 mm (closest balance to both counts below 100) | 0.9731 | 0.9723 | 0.9700 | 0.9712 | 103 | 112 |
+| 4.0 mm | 0.9706 | 0.9763 | 0.9603 | 0.9683 | 87 | 148 |
+
+The threshold scan covered 0.5–10.0 mm in 0.1 mm increments. No threshold produced fewer than 100 false alarms and fewer than 100 missed irrigations: at 3.5 mm the counts were 103 and 112, respectively. The 2.7 mm threshold had the highest validation F1 in the scan, while 3.5 mm came closest to balancing the two error counts. Keep the operational threshold at 2 mm unless the cost of false alarms versus missed irrigation is explicitly chosen; validate any threshold change on new independent field data.
+
+- False-alarm rows with readable labels and edge reasons: [`results/false_alarm_review.csv`](results/false_alarm_review.csv)
+- Training-only threshold comparison: [`results/threshold_validation.csv`](results/threshold_validation.csv)
+- Re-run the analysis: `python .\analyze_model_testing.py`
+
 Best CV MAE: 1.0232
 Best parameters: {'n_estimators': 800, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 0.8, 'max_depth': 30}
 
