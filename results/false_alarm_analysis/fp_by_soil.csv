@@ -1,0 +1,5 @@
+soil_type,n_total,FP_count,FN_count,FP_rate_%,FN_rate_%
+sandy,2055,57,9,2.77,0.44
+loamy,1970,47,2,2.39,0.1
+silt,2018,44,17,2.18,0.84
+clay,1957,37,5,1.89,0.26

@@ -1,0 +1,5 @@
+growth_stage,n_total,FP_count,FN_count,FP_rate_%,FN_rate_%
+Vegetative,2016,64,8,3.17,0.4
+Flowering,1978,44,4,2.22,0.2
+Sowing,1939,40,15,2.06,0.77
+Harvest,2067,37,6,1.79,0.29
