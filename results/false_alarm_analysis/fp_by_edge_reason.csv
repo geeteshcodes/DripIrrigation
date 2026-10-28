@@ -1,0 +1,10 @@
+edge_reason,FP_count,FP_pct
+no_edge_flag,108,58.4
+label_conflict,21,11.4
+high_wind,20,10.8
+low_temp,19,10.3
+heavy_rain,16,8.6
+extreme_vpd,10,5.4
+saturated_soil,7,3.8
+very_dry_soil,7,3.8
+near_zero_rain,3,1.6

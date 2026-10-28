@@ -1,0 +1,7 @@
+crop,n_total,FP_count,FN_count,FP_rate_%,FN_rate_%
+sugarcane,1343,45,1,3.35,0.07
+potato,1330,37,4,2.78,0.3
+cotton,1276,34,6,2.66,0.47
+maize,1355,26,7,1.92,0.52
+wheat,1327,24,1,1.81,0.08
+rice,1369,19,14,1.39,1.02
